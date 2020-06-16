@@ -1,4 +1,3 @@
-    + [项目环境：IDEA，maven，MySQL8.0.x，JDK 11](#-----idea-maven-mysql80x-jdk-11)
 - [第一章 课程介绍](#--------)
 - [第二章 应用SpringBoot完成基础项目搭建](#------springboot--------)
   * [2.1 使用IDEA创建maven项目](#21---idea--maven--)
