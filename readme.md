@@ -300,6 +300,12 @@ public class App {
 
 启动测试
 
+7.总结
+* 配置文件
+ * mapping：自动配置与数据库的映射，并自动组装`sql`语句
+  * UserDOMapper.xml：与 user_info 表映射
+  * userPasswordDOMapper.xml：与user_password 表映射
+
 ##	第三章 用户模块开发
 
 ###	3.1 使用SpringMVC方式开发用户信息
@@ -450,7 +456,35 @@ private UserVO convertFromModel(UserModel userModel) {
 
 }
 ```
+7.总结
 
+* Controller：控制层，处理调用服务处理请求
+
+ * viewobject
+ 
+  * UserVO.java：返回前端的对象
+  
+ UserController.java：处理用户请求
+ 
+* DAO：与数据库打交道，封装了对数据处理的各种方法
+
+ * UserDOMapperUser.java
+ 
+ * userPasswordDOMapper.java
+ 
+* dataobject：存放 JavaBeans 
+
+ * UserDO.java
+ 
+ * userPasswordDO.java
+ 
+* service：服务层，处理用户请求的地方
+
+ * UserService：处理用户请求
+ 
+ * UserServiceImpl：实现类
+ 
+ * User Model：返回给控制器的模型
 ### 3.2 定义通用的返回对象——返回正确信息
 
 之前的程序一旦出错，只会返回一个白页，并没有错误信息，需要返回一个有意义的错误信息。
