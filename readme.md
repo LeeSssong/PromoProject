@@ -1,5 +1,6 @@
 
 
+
 Table of Contents
 =================
 
@@ -32,6 +33,9 @@ Table of Contents
       * [第六章 秒杀模块开发]()
          * [6.1 秒杀模型管理——活动模型创建]()
       * [6.2 秒杀模型管理——活动模型与商品模型结合]()
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
+
 
 **项目环境：IDEA，maven，MySQL5.x**
 * 项目运行方式：从IDEA导入项目，更新maven依赖，然后在MySQL数据库中运行miaosha.sql文件生成数据库。
