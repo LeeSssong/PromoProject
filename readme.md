@@ -2,7 +2,7 @@
 Table of Contents
 =================
 
-      * [第一章 课程介绍](https://github.com/LeeSssong/PromoProject/blob/master/readme.md#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D)
+      * [第一章 课程介绍]()
       * [第二章 应用SpringBoot完成基础项目搭建]()
          * [2.1 使用IDEA创建maven项目]()
          * [2.2 引入SpringBoot依赖包实现简单的Web项目]()
