@@ -1,3 +1,11 @@
+项目环境：IDEA，maven，MySQL5.x
+项目运行方式：从IDEA导入项目，更新maven依赖，然后在MySQL数据库中运行miaosha.sql文件生成数据库。
+
+项目入口为：com.miaoshaproject.App，使用IDEA启动后，若端口被占用，修改application.properties中的端口配置。
+
+项目采用前后端分离，直接在浏览器打开resources目录下的getotp.html即可。
+
+---
 
 ##	第一章 课程介绍
 
