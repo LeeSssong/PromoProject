@@ -1,5 +1,7 @@
 
 
+Table of Contents
+=================
 
       * [第一章 课程介绍](https://github.com/LeeSssong/PromoProject/blob/master/readme.md#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AF%BE%E7%A8%8B%E4%BB%8B%E7%BB%8D)
       * [第二章 应用SpringBoot完成基础项目搭建]()
@@ -30,7 +32,6 @@
       * [第六章 秒杀模块开发]()
          * [6.1 秒杀模型管理——活动模型创建]()
       * [6.2 秒杀模型管理——活动模型与商品模型结合]()
-
 
 **项目环境：IDEA，maven，MySQL5.x**
 * 项目运行方式：从IDEA导入项目，更新maven依赖，然后在MySQL数据库中运行miaosha.sql文件生成数据库。
