@@ -303,6 +303,44 @@ public class App {
 ##	第三章 用户模块开发
 
 ###	3.1 使用SpringMVC方式开发用户信息
+0.目录结构
+├─src
+│  └─main
+│      ├─java
+│      │  └─com
+│      │      └─miaoshaproject
+│      │          │  App.java
+│      │          │  
+│      │          ├─controller
+│      │          │  │  UserController.java
+│      │          │  │  
+│      │          │  └─viewobject
+│      │          │          UserVO.java
+│      │          │          
+│      │          ├─dao
+│      │          │      UserDOMapper.java
+│      │          │      userPasswordDOMapper.java
+│      │          │      
+│      │          ├─dataobject
+│      │          │      UserDO.java
+│      │          │      userPasswordDO.java
+│      │          │      
+│      │          └─service
+│      │              │  UserService.java
+│      │              │  
+│      │              ├─impl
+│      │              │      UserServiceImpl.java
+│      │              │      
+│      │              └─model
+│      │                      UserModel.java
+│      │                      
+│      └─resources
+│          │  application.properties
+│          │  mybatis-generator.xml
+│          │  
+│          └─mapping
+│                  UserDOMapper.xml
+│                  userPasswordDOMapper.xml
 
 1.增加controller层、dao层
 
