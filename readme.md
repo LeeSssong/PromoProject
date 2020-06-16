@@ -1,4 +1,5 @@
-#### 项目环境：IDEA，maven，MySQL5.x
+
+#### 项目环境：IDEA，maven，MySQL8.0.x，JDK 11
 
 * 项目运行方式：从IDEA导入项目，更新maven依赖，然后在MySQL数据库中运行miaosha.sql文件生成数据库。
 * 项目入口为：com.miaoshaproject.App，使用IDEA启动后，若端口被占用，修改application.properties中的端口配置。
@@ -97,7 +98,7 @@ server.port=8090
 <dependency>
   <groupId>mysql</groupId>
   <artifactId>mysql-connector-java</artifactId>
-    <version>5.1.47</version>
+    <version>8.0.15</version>
 </dependency>
 <!--数据库连接池-->
 <dependency>
@@ -109,7 +110,7 @@ server.port=8090
 <dependency>
   <groupId>org.mybatis.spring.boot</groupId>
   <artifactId>mybatis-spring-boot-starter</artifactId>
-  <version>1.3.1</version>
+  <version>2.0.1</version>
 </dependency>
 ```
 
@@ -126,39 +127,40 @@ server.port=8090
 ```xml
 <!--自动生成工具，生成数据库文件的映射-->
 <plugin>
-  <groupId>org.mybatis.generator</groupId>
-  <artifactId>mybatis-generator-maven-plugin</artifactId>
-  <version>1.3.5</version>
-  <dependencies>
+<groupId>org.mybatis.generator</groupId>
+<artifactId>mybatis-generator-maven-plugin</artifactId>
+<version>1.3.5</version>
+<dependencies>
     <dependency>
-      <groupId>org.mybatis.generator</groupId>
-      <artifactId>mybatis-generator-core</artifactId>
-      <version>1.3.5</version>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-core</artifactId>
+        <version>1.3.7</version>
     </dependency>
+
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.41</version>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.15</version>
     </dependency>
-  </dependencies>
-  <executions>
+</dependencies>
+<executions>
     <execution>
-      <id>mybatis generator</id>
-      <phase>package</phase>
-      <goals>
-        <goal>generate</goal>
-      </goals>
+        <id>mybatis generator</id>
+        <phase>package</phase>
+        <goals>
+            <goal>generate</goal>
+        </goals>
     </execution>
-  </executions>
-  <configuration>
+</executions>
+<configuration>
     <!--允许移动生成的文件-->
     <verbose>true</verbose>
     <!--允许自动覆盖文件（生产环境中千万不要这样做）-->
     <overwrite>true</overwrite>
     <configurationFile>
-      src/main/resources/mybatis-generator.xml
+        src/main/resources/mybatis-generator.xml
     </configurationFile>
-  </configuration>
+</configuration>
 </plugin>
 ```
 
@@ -184,8 +186,8 @@ http://www.mybatis.org/generator/configreference/xmlconfig.html
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/miaosha"
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/miaosha?serverTimezone = GMT"
                         userId="root"
                         password="123456">
         </jdbcConnection>
@@ -238,13 +240,13 @@ http://www.mybatis.org/generator/configreference/xmlconfig.html
 
 ```xml
 spring.datasource.name=miaosha
-spring.datasource.url=jdbc:mysql://localhost:3306/miaosha
+spring.datasource.url=jdbc:mysql://localhost:3306/miaosha?serverTimezone = GMT
 spring.datasource.username=root
 spring.datasource.password=123456
 
 #使用druid数据源
 spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
 6.测试数据库
