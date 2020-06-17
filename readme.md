@@ -644,15 +644,33 @@ public CommonReturnType getUser(@RequestParam(name = "id") Integer id) throws Bu
 
 ### 3.4 定义通用的返回对象——异常处理
 
-1.定义exceptionHandler解决未被controller层吸收的exception
+1. 修改错误类型枚举 `EmBusinessError`
 
 ```java
-public class BaseController {
+//因为如果 int 以0开头，传到 json 里会被默认去掉
+//通用错误类型10001
+PARAMETER_VALIDATION_ERROR(10001, "参数不合法"),
+UNKNOWN_ERROR(10002,"未知错误"),
 
-    //定义exceptionHandler解决未被controller层吸收的exception
+//20000开头为用户信息相关错误定义
+//通用错误码的意义：模块化分工开发时，错误通用码可以使负责不同模块开发的人员把一类错误放到一起
+USER_NOT_EXIST(20001, "用户不存在")
+    ;
+```
+
+2. 因为错误处理是所有的类通用的，所以应该定义一个基类存放，并让其他 Controller 继承之
+
+```java
+/**
+     * @Description: 解决未被 Controller 层吸收的exception
+     * @Param: HttpServletReuqest, Exception
+     * @return: Object
+     * @Author: LeeSongs
+     * @Date: 2020/6/17
+     */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
+    @ResponseBody	//表示该方法的返回的结果 json 数据直接写入 HTTP 响应正文中
     public Object handlerException(HttpServletRequest request, Exception ex) {
         Map<String, Object> responseData = new HashMap<>();
         if (ex instanceof BusinessException) {
@@ -665,9 +683,8 @@ public class BaseController {
         }
         return CommonReturnType.create(responseData, "fail");
     }
-
-}
 ```
+
 
 ### 3.5 用户模型管理——otp验证码获取
 
