@@ -2217,7 +2217,7 @@ CREATE TABLE `promo`  (
        selectByExampleQueryId="false" ></table>
 ```
 
-##	6.2 秒杀模型管理——活动模型与商品模型结合
+###	6.2 秒杀模型管理——活动模型与商品模型结合
 
 1.service
 
